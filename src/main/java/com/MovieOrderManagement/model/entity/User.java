@@ -28,6 +28,8 @@ public class User {
     private String password;
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
+    @OneToOne
+    private UserAccount userAccount;
 
     public User(String userName, String email, String password) {
         this.userName = userName;

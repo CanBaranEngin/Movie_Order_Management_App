@@ -4,6 +4,7 @@ import com.MovieOrderManagement.model.dto.UserDataDto;
 import com.MovieOrderManagement.model.dto.UserLoginDto;
 import com.MovieOrderManagement.model.entity.User;
 import com.MovieOrderManagement.model.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,10 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    public UserController(UserService userService) {
+    private final ModelMapper modelMapper;
+    public UserController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN') OR hasRole('ROLE_USER')")
@@ -34,10 +37,7 @@ public class UserController {
     }
     @PostMapping("/signup")
     public String signup(@RequestBody @Valid UserDataDto userDataDTO) {
-        User user = new User();
-        user.setUserName(userDataDTO.getUserName());
-        user.setEmail(userDataDTO.getEmail());
-        user.setPassword(userDataDTO.getPassword());
+        User user = modelMapper.map(userDataDTO, User.class);
         return userService.signup(user,3);
     }
 

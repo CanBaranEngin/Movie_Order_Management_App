@@ -38,7 +38,7 @@ public class UserController {
         user.setUserName(userDataDTO.getUserName());
         user.setEmail(userDataDTO.getEmail());
         user.setPassword(userDataDTO.getPassword());
-        return userService.signup(user,false);
+        return userService.signup(user,3);
     }
 
     @DeleteMapping(value = "/delete/{username}")

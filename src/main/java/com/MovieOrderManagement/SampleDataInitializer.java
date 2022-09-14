@@ -21,13 +21,13 @@ public class SampleDataInitializer implements ApplicationRunner {
         // Creating a sample Admin USER
         User adminUser = new User("admin-user", "adminuser@mail.com", "pass1234");
         if (!userRepository.existsByUserName(adminUser.getUserName())) {
-            userService.signup(adminUser, true);
+            userService.signup(adminUser, 1);
         }
 
         // Creating a sample USER
         User sampleUser = new User("sample-user", "sampleuser@mail.com", "pass1234");
         if (!userRepository.existsByUserName(sampleUser.getUserName())) {
-            userService.signup(sampleUser, false);
+            userService.signup(sampleUser, 3);
         }
 
     }

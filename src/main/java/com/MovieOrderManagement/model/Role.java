@@ -12,7 +12,8 @@ import javax.persistence.Id;
 public enum Role implements GrantedAuthority {
 
     ROLE_ADMIN,
-    ROLE_CLIENT;
+    ROLE_NONSUBSCRIBER,
+    ROLE_SUBSCRIBER;
 
     @Override
     public String getAuthority() {

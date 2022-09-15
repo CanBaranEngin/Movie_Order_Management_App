@@ -40,7 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // Authorize any endpoint by a role
                 .antMatchers("/api/v1/users/{username}").hasRole("ADMIN")
-                .antMatchers("/api/v1/users").hasRole("ADMIN");
+                .antMatchers("/api/v1/users").hasRole("ADMIN")
+                .antMatchers("/api/v1/movieOrder").hasRole("ADMIN")
+                .antMatchers("/api/v1/movies").hasRole("ADMIN");
 
 
                 // Disallow everything else..

@@ -1,11 +1,13 @@
 package com.MovieOrderManagement.controller;
 
 
+import com.MovieOrderManagement.model.dto.MovieOrderDto;
+import com.MovieOrderManagement.model.entity.MovieOrder;
 import com.MovieOrderManagement.service.MovieOrderService;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 
@@ -21,5 +23,13 @@ public class MovieOrderController {
     public MovieOrderController(ModelMapper modelMapper, MovieOrderService movieOrderService) {
         this.modelMapper = modelMapper;
         this.movieOrderService = movieOrderService;
+    }
+
+    @PostMapping("movieOrder")
+    public ResponseEntity<MovieOrderDto> create(@RequestBody MovieOrderDto movieOrderDto){
+        MovieOrder movieOrder =movieOrderService.create(movieOrderDto);
+        MovieOrderDto result = modelMapper.map(movieOrder,MovieOrderDto.class);
+        return ResponseEntity.ok(movieOrderDto);
+
     }
 }

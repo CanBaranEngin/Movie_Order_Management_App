@@ -1,7 +1,7 @@
 package com.MovieOrderManagement;
 
 import com.MovieOrderManagement.model.entity.User;
-import com.MovieOrderManagement.model.service.UserService;
+import com.MovieOrderManagement.service.UserService;
 import com.MovieOrderManagement.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;

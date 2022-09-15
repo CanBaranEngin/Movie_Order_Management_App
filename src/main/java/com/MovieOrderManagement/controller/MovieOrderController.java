@@ -1,7 +1,7 @@
 package com.MovieOrderManagement.controller;
 
 
-import com.MovieOrderManagement.repository.MovieOrderRepository;
+import com.MovieOrderManagement.service.MovieOrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,4 +17,9 @@ public class MovieOrderController {
 
     private final ModelMapper modelMapper;
     private final MovieOrderService movieOrderService;
+
+    public MovieOrderController(ModelMapper modelMapper, MovieOrderService movieOrderService) {
+        this.modelMapper = modelMapper;
+        this.movieOrderService = movieOrderService;
+    }
 }

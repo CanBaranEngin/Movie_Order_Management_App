@@ -1,4 +1,4 @@
-package com.MovieOrderManagement.model.service;
+package com.MovieOrderManagement.service;
 
 
 import org.springframework.stereotype.Service;

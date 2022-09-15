@@ -1,4 +1,4 @@
-package com.MovieOrderManagement.model.service;
+package com.MovieOrderManagement.service;
 
 import com.MovieOrderManagement.model.dto.MovieDto;
 import com.MovieOrderManagement.model.entity.Movie;

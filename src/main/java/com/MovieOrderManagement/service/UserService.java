@@ -1,4 +1,4 @@
-package com.MovieOrderManagement.model.service;
+package com.MovieOrderManagement.service;
 
 import com.MovieOrderManagement.exception.CustomJwtException;
 import com.MovieOrderManagement.exception.EntityNotFoundException;

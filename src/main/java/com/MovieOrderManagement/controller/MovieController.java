@@ -1,9 +1,8 @@
 package com.MovieOrderManagement.controller;
 
 import com.MovieOrderManagement.model.dto.MovieDto;
-import com.MovieOrderManagement.model.dto.UserLoginDto;
 import com.MovieOrderManagement.model.entity.Movie;
-import com.MovieOrderManagement.model.service.MovieService;
+import com.MovieOrderManagement.service.MovieService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

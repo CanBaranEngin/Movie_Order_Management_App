@@ -32,4 +32,16 @@ public class UserAccountService {
         return userAccountRepository.save(userAccount);
 
     }
+
+    public Boolean updateAccountBalance(Double money,Long id){
+        User user = userService.getById(id);
+        if(user !=null){
+            user.getUserAccount().setAccountBalance(user.getUserAccount().getAccountBalance()+money);
+            userRepository.save(user);
+            return true;
+        }
+        else
+            return false;
+
+    }
 }

@@ -26,10 +26,10 @@ public class MovieOrderController {
     }
 
     @PostMapping("movieOrder")
-    public ResponseEntity<MovieOrderDto> create(@RequestBody MovieOrderDto movieOrderDto){
+    public ResponseEntity<MovieOrder> create(@RequestBody MovieOrderDto movieOrderDto){
         MovieOrder movieOrder =movieOrderService.create(movieOrderDto);
-        MovieOrderDto result = modelMapper.map(movieOrder,MovieOrderDto.class);
-        return ResponseEntity.ok(movieOrderDto);
+        //MovieOrderDto result = modelMapper.map(movieOrder,MovieOrderDto.class);
+        return ResponseEntity.ok(movieOrder);
 
     }
 }

@@ -1,17 +1,20 @@
 package com.MovieOrderManagement.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "UserAccount")
+@Table(name = "Subscription")
 @Data
-public class UserAccount {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double accountBalance;
     @OneToOne
     private User user;
 }

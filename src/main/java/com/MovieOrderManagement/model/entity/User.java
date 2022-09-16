@@ -31,6 +31,9 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "UserAccount_id",referencedColumnName = "id")
     private UserAccount userAccount;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subscription_id",referencedColumnName = "id")
+    private Subscription subscription;
     public User(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;

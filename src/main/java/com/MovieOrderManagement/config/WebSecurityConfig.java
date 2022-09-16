@@ -37,11 +37,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/users/signin").permitAll()
                 .antMatchers("/api/v1/users/signup").permitAll()
                 .antMatchers("/api/v1/UserAccount").permitAll()
-
+                .antMatchers("/api/v1/movieOrder").permitAll()
+                .antMatchers("/api/v1/subscription").permitAll()
+                .antMatchers("/api/v1/userAccountBalance/{id}").permitAll()
                 // Authorize any endpoint by a role
                 .antMatchers("/api/v1/users/{username}").hasRole("ADMIN")
                 .antMatchers("/api/v1/users").hasRole("ADMIN")
-                .antMatchers("/api/v1/movieOrder").hasRole("ADMIN")
                 .antMatchers("/api/v1/movies").hasRole("ADMIN");
 
 

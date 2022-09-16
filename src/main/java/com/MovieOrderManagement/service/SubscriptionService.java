@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class SubscriptionService {
@@ -46,6 +47,9 @@ public class SubscriptionService {
             throw new CustomJwtException("Your balance is not enough for subscription!!", HttpStatus.BAD_REQUEST);
         }
 
-
+    }
+    public List<Subscription> getAll(){
+        List<Subscription> subscriptionList=subscriptionRepository.findAll();
+        return subscriptionList;
     }
 }

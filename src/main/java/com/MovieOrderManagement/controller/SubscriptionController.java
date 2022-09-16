@@ -5,12 +5,10 @@ import com.MovieOrderManagement.model.entity.Subscription;
 import com.MovieOrderManagement.service.SubscriptionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Validated
 @RestController
@@ -29,5 +27,10 @@ public class SubscriptionController {
     public ResponseEntity<Subscription> create(@RequestBody SubscriptionDto subscriptionDto){
         Subscription subscription = subscriptionService.create(subscriptionDto);
         return ResponseEntity.ok(subscription);
+    }
+    @GetMapping("/subscriptions")
+    public ResponseEntity<List<Subscription>> getAll(){
+        List<Subscription> subscriptionList=subscriptionService.getAll();
+        return ResponseEntity.ok(subscriptionList);
     }
 }

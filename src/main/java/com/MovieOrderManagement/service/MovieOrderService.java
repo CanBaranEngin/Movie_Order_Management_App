@@ -3,9 +3,12 @@ package com.MovieOrderManagement.service;
 
 import com.MovieOrderManagement.model.dto.MovieOrderDto;
 import com.MovieOrderManagement.model.entity.MovieOrder;
+import com.MovieOrderManagement.model.entity.Subscription;
 import com.MovieOrderManagement.repository.MovieOrderRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MovieOrderService {
@@ -24,10 +27,14 @@ public class MovieOrderService {
     }
 
     public MovieOrder create(MovieOrderDto movieOrderDto) {
-
         MovieOrder movieOrder = modelMapper.map(movieOrderDto,MovieOrder.class);
         movieOrder.setMovie(movieService.getById(movieOrderDto.getMovieId()));
         movieOrder.setUser(userService.getById(movieOrderDto.getUserId()));
         return movieOrderRepository.save(movieOrder);
+    }
+
+    public List<MovieOrder> getAll(){
+        List<MovieOrder> movieOrderList=movieOrderRepository.findAll();
+        return movieOrderList;
     }
 }

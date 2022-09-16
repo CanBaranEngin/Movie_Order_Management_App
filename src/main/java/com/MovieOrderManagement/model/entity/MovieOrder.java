@@ -24,8 +24,5 @@ public class MovieOrder {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
-    @CreationTimestamp
-    private Date startDate;
-    private String endDatePlanned;
-    private String endDateActual;
+
 }

@@ -3,6 +3,7 @@ package com.MovieOrderManagement.controller;
 
 import com.MovieOrderManagement.model.dto.MovieOrderDto;
 import com.MovieOrderManagement.model.entity.MovieOrder;
+import com.MovieOrderManagement.model.entity.Subscription;
 import com.MovieOrderManagement.service.MovieOrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Validated
 @RestController
@@ -31,5 +33,11 @@ public class MovieOrderController {
         //MovieOrderDto result = modelMapper.map(movieOrder,MovieOrderDto.class);
         return ResponseEntity.ok(movieOrder);
 
+    }
+
+    @GetMapping("/movieorders")
+    public ResponseEntity<List<MovieOrder>> getAll(){
+        List<MovieOrder> movieOrderList=movieOrderService.getAll();
+        return ResponseEntity.ok(movieOrderList);
     }
 }

@@ -11,6 +11,5 @@ public class MovieDto {
     private String title;
     private String description;
     private Long length;
-    private Double rentalPrice;
     private String releaseYear;
 }

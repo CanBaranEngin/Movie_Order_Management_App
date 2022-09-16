@@ -14,6 +14,5 @@ public class Movie {
     private String title;
     private String description;
     private Long length;
-    private Double rentalPrice;
     private String releaseYear;
 }

@@ -8,6 +8,7 @@ import com.MovieOrderManagement.repository.MovieRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,5 +31,10 @@ public class MovieService {
     public Movie getById(Long id){
         Optional<Movie> byId = movieRepository.findById(id);
         return byId.orElseThrow(()->new EntityNotFoundException("User"));
+    }
+
+    public List<Movie> getAll() {
+        List<Movie> movieList = movieRepository.findAll();
+        return movieList;
     }
 }

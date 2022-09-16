@@ -11,7 +11,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Collections;
+import java.util.Date;
 
 @Service
 public class SubscriptionService {
@@ -36,9 +38,9 @@ public class SubscriptionService {
         if(user.getUserAccount().getAccountBalance()>50.0){
             user.getUserAccount().setAccountBalance(user.getUserAccount().getAccountBalance()-50.0);
             user.setRoles(Collections.singletonList(Role.ROLE_SUBSCRIBER));
-            //userRepository.save(user);
+            subscription.setSubscriptionStartedDate(LocalDate.now());
+            subscription.setSubscriptionEndedDate(LocalDate.now().plusDays(30));
             return subscriptionRepository.save(subscription);
-
         }
         else {
             throw new CustomJwtException("Your balance is not enough for subscription!!", HttpStatus.BAD_REQUEST);
